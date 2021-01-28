@@ -60,36 +60,47 @@ class CounterButton extends Component
     constructor()
     {
         super();
-        this.state ={counter:0};
+        //this.state ={counter:0};
     }
 
-    increment=()=>
-    {
-        //this.setState({counter:this.state.counter + this.props.incrementby})
-        this.props.incrementMethod(this.props.by);
-    }
+    // increment=()=>
+    // {
+    //     //this.setState({counter:this.state.counter + this.props.incrementby})
+    //     this.props.incrementMethod(this.props.by);
+    // }
 
-    decrement=()=>
-    {
-        //this.setState({counter:this.state.counter - this.props.incrementby})
-        this.props.decrementMethod(this.props.by);
-    }
+    // decrement=()=>
+    // {
+    //     //this.setState({counter:this.state.counter - this.props.incrementby})
+    //     this.props.decrementMethod(this.props.by);
+    // }
     
-    render()
+    // render()
+    // {
+    //     return <div className="counter">
+    //         <button onClick={this.increment}>+{this.props.by}</button>
+    //         <button onClick={this.decrement}>-{this.props.by}</button>
+    //     </div>
+
+    // };
+    
+    // call the function in parent directly
+     render()
     {
         return <div className="counter">
-            <button onClick={this.increment}>+{this.props.by}</button>
-            <button onClick={this.decrement}>-{this.props.by}</button>
+            <button onClick={()=>this.props.incrementMethod(this.props.by)}>+{this.props.by}</button>
+            <button onClick={()=>this.props.decrementMethod(this.props.by)}>-{this.props.by}</button>
         </div>
 
     };
-    
 }
 
+// set default value if nothing is provided
 CounterButton.defaultProps ={
     incrementby:1
 }
 
+// validate type provided
 CounterButton.propTypes ={
     incrementby : PropTypes.number
 }
